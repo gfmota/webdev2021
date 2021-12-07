@@ -57,4 +57,7 @@ export const AccordionDiv = styled.div`
     color: ${({theme}) => theme.colors.primaryDark};
     text-decoration: none;
   }
+  img {
+    height: 10em;
+  }
 `
