@@ -1,67 +1,8 @@
+import { AccordionButton, AccordionDiv, Header } from './StyledComponents'
 import { FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle } from 'react-icons/fa'
 
-import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
-
-const Header = styled.ul`
-  background: ${ ({ theme }) => theme.colors.secondary };
-  color: white;
-  padding: 0 .75em;
-  margin-top: 0em;
-  display: flex;
-  align-items: center;
-  border-bottom: .3em solid ${ ({ theme }) => theme.colors.accent };
-  a {
-    color: white;
-    font-size: 1.2em;
-    text-decoration: none;
-    padding: 0 1em;
-  }
-`
-const AccordionButton = styled.button`
-  background-color: ${({theme}) => theme.colors.primary};
-  color: "#444";
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  font: inherit;
-  border: .1em solid black;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  :focus, :hover {
-    background-color: ${({theme}) => theme.colors.primaryDark};
-  }
-`
-const AccordionDiv = styled.div`
-  border: .1em solid black;
-  border-top: 0;
-  padding: .3em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media(min-width: 1224px) {
-    ul {
-      align-self: stretch;
-    }
-  }
-  ul {
-    padding: .5em 1em;
-    list-style-type: none;
-  }
-  ul li {
-    display: flex;
-    justify-content: space-between;
-  }
-  a {
-    color: ${({theme}) => theme.colors.primaryDark};
-    text-decoration: none;
-  }
-`
 
 const Accordion = ({ props }) => {
   const [isActive, setIsActive] = useState(false);
@@ -104,7 +45,7 @@ const Accordion = ({ props }) => {
         </ul>
         <div style={{display: "flex", justifyContent: "space-between", width: "12em"}}>
           <button
-            style={{border: "none", backgroundColor: "inherit", cursor: "pointer"}}
+            style={{border: "none", backgroundColor: "inherit", cursor: currentScreen > 0 && "pointer"}}
             onClick={() => currentScreen > 0 && setCurrentScreen(currentScreen - 1)}
           >
             <FaCaretLeft color={currentScreen === 0 ? "#929FB5" : "#FFA570"} size={30}/>
@@ -113,7 +54,7 @@ const Accordion = ({ props }) => {
               <FaCircle style={{marginTop: ".5em"}} size={15} color={ind === currentScreen ? "#ff8339" : "#929FB5"} />
             )}
           <button
-            style={{border: "none", backgroundColor: "inherit", cursor: "pointer"}}
+            style={{border: "none", backgroundColor: "inherit", cursor: currentScreen < maxScreens-1 && "pointer"}}
             onClick={() => currentScreen < maxScreens-1 && setCurrentScreen(currentScreen + 1)}
           >
             <FaCaretRight size={30} color={currentScreen === maxScreens-1 ? "#929FB5" : "#FFA570"} />
