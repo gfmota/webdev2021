@@ -38,7 +38,7 @@ const Accordion = ({ props }) => {
                   {props.homeworkLinks && 
                     props.homeworkLinks.map(link => (
                     <>
-                      <br/><a href={link}>{link}</a>
+                      <br/><a target="_blank" href={link}>{link}</a>
                     </>))}
                 </p>
                 <div style={{display: "inline"}}>
@@ -57,7 +57,7 @@ const Accordion = ({ props }) => {
                   {props.homeworkLinks && 
                     props.homeworkLinks.map(link => (
                     <>
-                      <br/><a href={link}>{link}</a>
+                      <br/><a target="_blank" href={link}>{link}</a>
                     </>))}
                 </p>
                 <div style={{display: "inline"}}>
