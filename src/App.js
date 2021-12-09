@@ -1,6 +1,7 @@
 import { AccordionButton, AccordionDiv, Footer, Header, StyledLink } from './StyledComponents'
-import { FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle } from 'react-icons/fa'
+import { FaBars, FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle, FaTimes } from 'react-icons/fa'
 
+import { Children } from 'react/cjs/react.production.min'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
 
@@ -98,15 +99,43 @@ const ReferenceLink = ({props}) => {
   );
 }
 
+const Menu = ({ children }) => {
+  return (
+    <div style={{flex: "flex", flexDirection: "column", alignItems: "stretch", margin: "0"}}>
+      {children}
+    </div>
+  )
+}
+
 function App() {
   const isDesktop = useMediaQuery({query: '(min-width: 1224px)'});
+  const [menu, setMenu] = useState(false);
   return (
     <>
       <Header>
+        <div>
         <img style={{height: "5em", margin: ".75em 0"}} alt="UCL Logo" src="/imgs/ucl-mark-grey-alpha-reverse.png"/>
-        <a href="#lessons">Aulas</a>
-        <a href="#references">Referências</a>
-        <a href="#about">Sobre</a>
+          {isDesktop ?
+            (<>
+              <a href="#lessons">Aulas</a>
+              <a href="#references">Referências</a>
+              <a href="#about">Sobre</a>
+            </>) :
+            (<>
+              <button
+                style={{border: "none", backgroundColor: "inherit"}} 
+                onClick={() => setMenu(!menu)}
+              >
+                {menu ? <FaTimes size={30} color="white"/> : <FaBars size={30} color="white"/>}
+              </button>
+            </>)
+          }
+        </div>
+        {(menu && !isDesktop) && (<Menu>
+          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#lessons">Aulas</a>
+          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#references">Referências</a>
+          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#about">Sobre</a>
+        </Menu>)}
       </Header>
       <h1 id='lessons' style={{textAlign: "center"}}>Aulas</h1>
       <ul style={isDesktop ? 

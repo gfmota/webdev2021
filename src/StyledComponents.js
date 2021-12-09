@@ -7,9 +7,11 @@ export const Header = styled.ul`
   color: white;
   padding: 0 .75em;
   margin-top: 0em;
-  display: flex;
-  align-items: center;
   border-bottom: .3em solid #62BEC1;
+  div {
+    display: flex;
+    align-items: center;
+  }
   a {
     color: white;
     font-size: 1.2em;
@@ -20,6 +22,9 @@ export const Header = styled.ul`
   a:hover {
     text-shadow: 0 0 1em #62BEC1;
     transform: scale(1.1);
+  }
+  @media (max-width: 1223px) {
+    div {justify-content: space-between;}
   }
 `
 export const AccordionButton = styled.button`
@@ -149,3 +154,4 @@ export const Footer = styled.div`
     }
   }
 `
+
