@@ -104,19 +104,22 @@ function App() {
     <>
       <Header>
         <img style={{height: "5em", margin: ".75em 0"}} alt="UCL Logo" src="/imgs/ucl-mark-grey-alpha-reverse.png"/>
+        <a href="#lessons">Aulas</a>
+        <a href="#references">Referências</a>
+        <a href="#about">Sobre</a>
       </Header>
-      <h1 style={{textAlign: "center"}}>Aulas</h1>
+      <h1 id='lessons' style={{textAlign: "center"}}>Aulas</h1>
       <ul style={isDesktop ? 
         {margin: "0 7.5em", padding: "0", listStyle: "none"} : 
         {margin: "0 1em", padding: "0", listStyle: "none"}}>
         {lessons.map(lesson => <Accordion props={lesson} />)}
       </ul>
-      <h1 style={{textAlign: "center"}}>Referências</h1>
+      <h1 id='references' style={{textAlign: "center"}}>Referências</h1>
       <ul style={isDesktop ?
         {display: "grid", gridTemplateColumns: "1fr 1fr", padding: "0 2em"} : {display: "block", padding: "0 1em"}}>
         {references.map((reference) => <ReferenceLink props={reference} />)}
       </ul>
-      <Footer>
+      <Footer id="about">
         <h1>USPCodeLab</h1>
         <div className='main'>
           <p>Grupo de extensão universitária que tem como objetivo <b>estimular a inovação tecnológica na USP</b></p>

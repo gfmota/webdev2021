@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Header = styled.ul`
   position: sticky;
+  width: 100%;
   top: 0;
   background: #212431;
   color: white;
@@ -15,6 +16,11 @@ export const Header = styled.ul`
     font-size: 1.2em;
     text-decoration: none;
     padding: 0 1em;
+    transition: all .4s ease;
+  }
+  a:hover {
+    text-shadow: 0 0 1em #62BEC1;
+    transform: scale(1.1);
   }
 `
 export const AccordionButton = styled.button`
