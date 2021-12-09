@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Header = styled.ul`
   position: sticky;
   top: 0;
-  background: #2D3142;
+  background: #212431;
   color: white;
   padding: 0 .75em;
   margin-top: 0em;
@@ -72,7 +72,7 @@ export const AccordionDiv = styled.div`
 export const StyledLink = styled.a`
   display: flex;
   align-items: center;
-  background-color: #2D3142;
+  background-color: #313549;
   color: white;
   text-decoration: none;
   margin: .3em .5em;
@@ -94,5 +94,53 @@ export const StyledLink = styled.a`
     align-items: center;
     text-align: center;
     margin-bottom: 1em;
+  }
+`
+
+export const Footer = styled.div`
+  background-color: #212431;
+  color: white;
+  margin-top: 2em;
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+  }
+  p {
+    max-width: 50%
+  }
+  .main {
+    padding: 0 2em 2em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+  }
+  .images {
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 45%;
+  }
+  img {
+    transition: all .5s ease;
+    width: 5em;
+    filter: grayscale(100%);
+  }
+  img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+  @media (max-width: 1223px){
+    p {max-width: 100%}
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: stretch;
+    }
+    .images {
+      min-width: 90%;
+    }
   }
 `

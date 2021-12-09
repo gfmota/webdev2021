@@ -1,4 +1,4 @@
-import { AccordionButton, AccordionDiv, Header, StyledLink } from './StyledComponents'
+import { AccordionButton, AccordionDiv, Footer, Header, StyledLink } from './StyledComponents'
 import { FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle } from 'react-icons/fa'
 
 import { useMediaQuery } from 'react-responsive'
@@ -116,6 +116,26 @@ function App() {
         {display: "grid", gridTemplateColumns: "1fr 1fr", padding: "0 2em"} : {display: "block", padding: "0 1em"}}>
         {references.map((reference) => <ReferenceLink props={reference} />)}
       </ul>
+      <Footer>
+        <h1>USPCodeLab</h1>
+        <div className='main'>
+          <p>Grupo de extensão universitária que tem como objetivo <b>estimular a inovação tecnológica na USP</b></p>
+          <div className='images'>
+            <a href="https://codelab.ime.usp.br/#/" target="_blank">
+              <img src="/imgs/ime-ucl-logo-black.png" />
+            </a>
+            <a href="https://t.me/uspcodelab" target="_blank">
+              <img src="/imgs/telegram.png" />
+            </a>
+            <a href="https://www.youtube.com/c/CodeLabBR" target="_blank">
+              <img src="/imgs/youtube-logo-5-2-1536x1073.png" />
+            </a>
+            <a href="https://www.instagram.com/uspcodelab/" target="_blank">
+              <img src="/imgs/instagram.png" />
+            </a>
+          </div>
+        </div>
+      </Footer>
     </>
   );
 }
