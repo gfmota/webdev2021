@@ -1,4 +1,4 @@
-import { AccordionButton, AccordionDiv, Header } from './StyledComponents'
+import { AccordionButton, AccordionDiv, Header, StyledLink } from './StyledComponents'
 import { FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle } from 'react-icons/fa'
 
 import { useMediaQuery } from 'react-responsive'
@@ -12,11 +12,8 @@ const Accordion = ({ props }) => {
   return (
     <li style={{marginBottom: "1em"}}>
       <AccordionButton
+        active={isActive}
         onClick={() => setIsActive(!isActive)}
-        style={isActive ? 
-          {borderBottom: "0px", borderRadius: "5px 5px 0 0"} :
-          {borderRadius: "5px"}
-        }
       >
         {props.title}
         {isActive ?
@@ -24,13 +21,13 @@ const Accordion = ({ props }) => {
           <FaCaretDown color="#2D3142"/>
         }
       </AccordionButton>
-      <AccordionDiv style={!isActive ? {display: "none"} : {}}>
+      <AccordionDiv active={isActive}>
         <ul>
           {isDesktop ?
             (<>
               <li style={currentScreen === 0 ? {} : {display: "none"}}>
-                <p style={{marginTop: 0}}>{props.summary}</p>
-                <iframe allowFullScreen src={props.link} title={props.title} width="720" height="240"></iframe>
+                <p style={{marginTop: 0, marginRight: "1em"}}>{props.summary}</p>
+                <iframe allowFullScreen src={props.link} title={props.title} style={{minWidth: 360, minHeight: 220}}></iframe>
               </li>
               <li style={currentScreen === 1 ? {} : {display: "none"}}>
                 <p>
@@ -89,6 +86,18 @@ const Accordion = ({ props }) => {
   )
 }
 
+const ReferenceLink = ({props}) => {
+  return (
+    <StyledLink href={props.link} target="_blank">
+      <img src={props.image}/>
+      <div>
+        <h3>{props.name}</h3>
+        {props.summary}
+      </div>
+    </StyledLink>
+  );
+}
+
 function App() {
   const isDesktop = useMediaQuery({query: '(min-width: 1224px)'});
   return (
@@ -96,10 +105,16 @@ function App() {
       <Header>
         <img style={{height: "5em", margin: ".75em 0"}} alt="UCL Logo" src="/imgs/ucl-mark-grey-alpha-reverse.png"/>
       </Header>
+      <h1 style={{textAlign: "center"}}>Aulas</h1>
       <ul style={isDesktop ? 
         {margin: "0 7.5em", padding: "0", listStyle: "none"} : 
         {margin: "0 1em", padding: "0", listStyle: "none"}}>
         {lessons.map(lesson => <Accordion props={lesson} />)}
+      </ul>
+      <h1 style={{textAlign: "center"}}>Referências</h1>
+      <ul style={isDesktop ?
+        {display: "grid", gridTemplateColumns: "1fr 1fr", padding: "0 2em"} : {display: "block", padding: "0 1em"}}>
+        {references.map((reference) => <ReferenceLink props={reference} />)}
       </ul>
     </>
   );
@@ -174,6 +189,45 @@ const lessons = [
     link: "https://www.youtube.com/embed/wcAZw4xS8DM",
     homework: "Essa aula não teve tarefa, aproveite a folga e parabéns por completar o curso.",
   }
+]
+
+const references = [
+  {
+    name: "MDN Web Docs",
+    link: "https://developer.mozilla.org/pt-BR/",
+    image: "/imgs/MDN_Web_Docs-Logo.wine.png",
+    summary: "A melhor 'muleta' para tomar referências rápidas do para programação front end usando HTML, CSS e JavaScript."
+  },
+  {
+    name: "W3School",
+    link: "https://www.w3schools.com/",
+    image: "/imgs/W3Schools_logo.svg.png",
+    summary: "Referência e tutoriais para desenvolvimento web com HTML, CSS, JavaScript e muito mais."
+  },
+  {
+    name: "CodePen",
+    link: "https://codepen.io/",
+    image: "/imgs/Button-Fill-White-Large.png",
+    summary: "Ambiente de desenvolvimento front end online que permite ver seus projetos e o de outras pessoas."
+  },
+  {
+    name: "CSS Tricks",
+    link: "https://css-tricks.com/",
+    image: "/imgs/CSS-Tricks-star.png",
+    summary: "Referências e conteúdo sobre CSS."
+  },
+  {
+    name: "JavaScript.Info",
+    link: "https://javascript.info/",
+    image: "/imgs/javascriptinfo.png",
+    summary: "TUDO sobre JavaScript, do início ao fim."
+  },
+  {
+    name: "CodeLab no Youtube",
+    link: "https://www.youtube.com/c/CodeLabBR",
+    image: "/imgs/youtube-logo-5-2-1536x1073.png",
+    summary: "Nosso canal no youtube, lá vamos muito além de da base de desenvolvimento web e estamos sempre falando sobre o melhor da área tec."
+  },
 ]
 
 export default App;

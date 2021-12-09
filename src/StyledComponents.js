@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const Header = styled.ul`
-  background: ${ ({ theme }) => theme.colors.secondary };
+  position: sticky;
+  top: 0;
+  background: #2D3142;
   color: white;
   padding: 0 .75em;
   margin-top: 0em;
   display: flex;
   align-items: center;
-  border-bottom: .3em solid ${ ({ theme }) => theme.colors.accent };
+  border-bottom: .3em solid #62BEC1;
   a {
     color: white;
     font-size: 1.2em;
@@ -16,30 +18,35 @@ export const Header = styled.ul`
   }
 `
 export const AccordionButton = styled.button`
-  background-color: ${({theme}) => theme.colors.primary};
-  color: "#444";
+  background-color: ${props => props.active ? "#FF8339" : "#FFA570"};
+  border: .1em solid black;
+  border-bottom: ${props => (props.active ? "none" : ".1em solid black")};
+  border-radius: ${props => (props.active ? "5px 5px 0 0" : "5px")};
+  color: #444;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   text-align: left;
-  border: none;
   outline: none;
   font: inherit;
-  border: .1em solid black;
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
-  :focus, :hover {
-    background-color: ${({theme}) => theme.colors.primaryDark};
+  :hover {
+    background-color: #FF8339;
   }
 `
 export const AccordionDiv = styled.div`
-  border: .1em solid black;
-  border-top: 0;
   padding: .3em;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease;
+  border: ${props => (props.active ? ".1em solid black" : "none")};
+  border-top: none;
+  overflow: ${props => (props.active ? "auto" : "hidden")};
+  height: ${props => (props.active ? "280px" : "0px")};
   @media(min-width: 1224px) {
     ul {
       align-self: stretch;
@@ -54,10 +61,38 @@ export const AccordionDiv = styled.div`
     justify-content: space-between;
   }
   a {
-    color: ${({theme}) => theme.colors.primaryDark};
+    color: "#FF8339";
     text-decoration: none;
   }
   img {
     height: 10em;
+  }
+`
+
+export const StyledLink = styled.a`
+  display: flex;
+  align-items: center;
+  background-color: #2D3142;
+  color: white;
+  text-decoration: none;
+  margin: .3em .5em;
+  padding: .5em 2em 1em 2em;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  :hover {
+    transform: scale(1.05);
+    color: #62BEC1;
+    box-shadow: 0 0 .8em #62BEC1;
+  }
+  img {
+    height: 4em;
+    margin-right: 1em;
+  }
+  @media (max-width: 600px) {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1em;
   }
 `

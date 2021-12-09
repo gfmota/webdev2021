@@ -1,8 +1,7 @@
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
-
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,21 +12,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const theme = {
-  colors: {
-    primary: '#FFA570',
-    primaryDark: '#ff8339',
-    secondary: '#2D3142',
-    accent: '#62BEC1',
-  }
-}
-
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <ThemeProvider theme={theme}>  
       <App />
-    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
