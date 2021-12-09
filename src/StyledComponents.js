@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Header = styled.ul`
   position: sticky;
-  width: 100%;
   top: 0;
   background: #212431;
   color: white;
