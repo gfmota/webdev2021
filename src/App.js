@@ -123,7 +123,7 @@ function App() {
                 to="lessons"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-130}
                 duration={500}
               >
                 Aulas
@@ -134,7 +134,7 @@ function App() {
                 to="references"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-130}
                 duration={500}
               >
                 Referências
@@ -145,7 +145,7 @@ function App() {
                 to="about"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-130}
                 duration={500}
               >
                 Sobre
@@ -168,7 +168,7 @@ function App() {
             to="lessons"
             spy={true}
             smooth={true}
-            offset={-70}
+            offset={-250}
             duration={500}
             style={{borderTop: "1px solid white", padding: ".5em 0"}}
           >
@@ -180,7 +180,7 @@ function App() {
             to="references"
             spy={true}
             smooth={true}
-            offset={-70}
+            offset={-250}
             duration={500}
             style={{borderTop: "1px solid white", padding: ".5em 0"}}
           >
@@ -192,7 +192,7 @@ function App() {
             to="about"
             spy={true}
             smooth={true}
-            offset={-70}
+            offset={-250}
             duration={500}
             style={{borderTop: "1px solid white", padding: ".5em 0"}}
           >
