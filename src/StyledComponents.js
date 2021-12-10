@@ -43,6 +43,7 @@ export const AccordionButton = styled.button`
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
+  transition: all .3s ease;
   :hover {
     background-color: #FF8339;
   }
