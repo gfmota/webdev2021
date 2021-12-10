@@ -8,18 +8,19 @@ export const Header = styled.ul`
   padding: 0 .75em;
   margin-top: 0em;
   border-bottom: .3em solid #62BEC1;
+  z-index: 1;
   div {
     display: flex;
     align-items: center;
   }
-  a {
+  .link {
     color: white;
     font-size: 1.2em;
     text-decoration: none;
     padding: 0 1em;
     transition: all .4s ease;
   }
-  a:hover {
+  .link:hover {
     text-shadow: 0 0 1em #62BEC1;
     transform: scale(1.1);
   }

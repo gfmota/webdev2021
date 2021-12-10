@@ -1,7 +1,7 @@
 import { AccordionButton, AccordionDiv, Footer, Header, StyledLink } from './StyledComponents'
 import { FaBars, FaCaretDown, FaCaretLeft, FaCaretRight, FaCaretUp, FaCircle, FaTimes } from 'react-icons/fa'
 
-import { Children } from 'react/cjs/react.production.min'
+import { Link } from 'react-scroll'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
 
@@ -47,7 +47,7 @@ const Accordion = ({ props }) => {
             (<>
               <li style={currentScreen === 0 ? {} : {display: "none"}}>{props.summary}</li>
               <li style={currentScreen === 1 ? {} : {display: "none"}}>
-                <iframe allowFullScreen src={props.link} title={props.title}></iframe>
+                <iframe allowFullScreen src={props.link} title={props.title} style={{minWidth: 360, minHeight: 220}}></iframe>
               </li>
               <li style={currentScreen === 2 ? {display: "flex", justifyContent: "space-between"} : {display: "none"}}>
                 <p>
@@ -117,9 +117,39 @@ function App() {
         <img style={{height: "5em", margin: ".75em 0"}} alt="UCL Logo" src="/imgs/ucl-mark-grey-alpha-reverse.png"/>
           {isDesktop ?
             (<>
-              <a href="#lessons">Aulas</a>
-              <a href="#references">Referências</a>
-              <a href="#about">Sobre</a>
+              <Link
+                className='link'
+                activeClass="active"
+                to="lessons"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                Aulas
+              </Link>
+              <Link
+                className='link'
+                activeClass="active"
+                to="references"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                Referências
+              </Link>
+              <Link
+                className='link'
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                Sobre
+              </Link>
             </>) :
             (<>
               <button
@@ -132,9 +162,42 @@ function App() {
           }
         </div>
         {(menu && !isDesktop) && (<Menu>
-          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#lessons">Aulas</a>
-          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#references">Referências</a>
-          <a style={{borderTop: "1px solid white", padding: ".5em 0"}} href="#about">Sobre</a>
+          <Link
+            className='link'
+            activeClass="active"
+            to="lessons"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            style={{borderTop: "1px solid white", padding: ".5em 0"}}
+          >
+            Aulas
+          </Link>
+          <Link
+            className='link'
+            activeClass="active"
+            to="references"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            style={{borderTop: "1px solid white", padding: ".5em 0"}}
+          >
+            Referências
+          </Link>
+          <Link
+            className='link'
+            activeClass="active"
+            to="about"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            style={{borderTop: "1px solid white", padding: ".5em 0"}}
+          >
+            Sobre
+          </Link>
         </Menu>)}
       </Header>
       <h1 id='lessons' style={{textAlign: "center"}}>Aulas</h1>
